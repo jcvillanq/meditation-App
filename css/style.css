@@ -1,4 +1,8 @@
 /* **************RESET CSS************ */
+:root{
+    --max-width: 1200px;
+
+}
   *,
   *::after,
   *::before{
@@ -6,12 +10,15 @@
     padding: 0;
     margin: 0;
   }
+
+
+/* **************UTILITARIOS ************ */
+
 .app{
     /* full-Screen */
     height: 100vh;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center; 
+    flex-direction: column;
 
 }
 
@@ -30,4 +37,16 @@
 }
 .player-container{
     background: lightsalmon;
+}
+
+@media screen and (min-width: 768px){
+    .app{
+        flex-direction: row;
+        height: 120vh;
+    }
+    
+}
+
+@media screen and (min-width: 1024px){
+    
 }
