@@ -11,42 +11,68 @@
     <header class="header">
       <section class="container">
         <div class="logo">
-            <a href="">MEAPP</a>
+          <a href="">MEAPP</a>
         </div>
-      
-      <button class="menu-btn">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-        >
-          <path d="M4 6H20V8H4zM4 11H20V13H4zM4 16H20V18H4z" />
-        </svg>
-        <svg
-          class="none"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z"
-          />
-        </svg>
-      </button>
-      <!-- NAv VAR -->
-      <nav class="menu">
-        <a href="#">About Meditation App</a>
-        <a href="#">Sign-in/Sign-up/</a>
-      </nav>
-    </section>
+
+        <button class="menu-btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path d="M4 6H20V8H4zM4 11H20V13H4zM4 16H20V18H4z" />
+          </svg>
+          <svg
+            class="none"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z"
+            />
+          </svg>
+        </button>
+        <!-- NAv VAR -->
+        <nav class="menu">
+          <a href="#">About MeApp</a>
+          <a href="#">Sign-in/Sign-up/</a>
+        </nav>
+      </section>
     </header>
     <main>
       <div class="app">
-        <section class="time-select"></section>
-        <section class="player-container"></section>
-        <section class="sound-picker"></section>
+        <section class="time-select">
+          <button data-time="120">2 minutes</button>
+          <button data-time="300">5 minutes</button>
+          <button data-time="600">10 minutes</button>
+        </section>
+        <section class="player-container">
+          <audio class="sound">
+            <source src="./sounds/rain.mp3" />
+          </audio>
+          <img src="./img/play.svg" alt="play" class="play" />
+    
+          <svg class="track-outline" width="453" height="453" viewBox="0 0 453 453" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="226.5" cy="226.5" r="216.5" stroke="white" stroke-width="20"/>
+            </svg>
+            
+            
+            <svg class="moving-outline" width="453" height="453" viewBox="0 0 453 453" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="226.5" cy="226.5" r="216.5" stroke="#018EBA" stroke-width="20"/>
+              </svg>
+
+              <h3 class="time-display">0:00</h3>
+              
+            
+        </section>
+        <section class="sound-picker">
+          <button data-sound="./sounds/rain.mp3" data-video="./video/rain.mp4"><img src="./img/rain.svg" alt="rain-sound"></button>
+          <button data-sound="./sounds/beach.mp3" data-video="./video/video.mp4"><img src="./img/beach.svg" alt="beach-sound"></button>
+
+        </section>
       </div>
     </main>
 
