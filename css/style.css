@@ -166,18 +166,22 @@ body {
     text-decoration: none;
   }
 .app {
-  /* full-Screen */
+  /* full-Screen
   height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; */
 }
-
-.time-select,
+.time-select{
+  height: 33vh;
+  flex: 1;
+  background-color: lightblue;
+}
+/* .time-select,
 .sound-picker,
 .player-container {
   height: 100%;
   flex: 1;
-}
+} */
 .time-select {
   background: lightblue;
 }
