@@ -86,12 +86,7 @@ body {
   }
 /* **************UTILITARIOS ************ */
 
-.bg-gray-light{
-    background-color: var(--gray-light-color);
-  }
-  .box-shadow-1 {
-    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
-  }
+
   
   .btn {
     border-radius: 0.5rem;
@@ -109,39 +104,19 @@ body {
     margin-right: auto;
     max-width: var(--max-width);
   }
-  .gray-scale {
-    filter: grayscale(1);
-  }
-  
+
   .none {
     display: none;
   }
-  .section {
-    padding: 2rem 1rem;
-  }
-  
-  .section-title{
-    border-top: thin solid var(--first-color);
-    border-bottom: thin solid var(--first-color);
-    width: 250px;
-    margin: 2rem auto;
-    padding: .5rem 1rem;
-    text-align: center;
-    color: var(--title-color);
-  }
-  
-  .text-center {
-    text-align: center;
-  }
-  .text-left {
-    text-align: left;
-  }
-  .text-right {
-    text-align: right;
-  }
-
   
   /* ************ ***Site Styles ************ */
+  .app{
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
   .header {
     position: fixed;
     left: 0;
@@ -151,12 +126,13 @@ body {
     height: var(--header-height); 
     background-color:transparent;
   }
-  
+
   .header > .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+  
   .menu, .logo, .menu-btn{
     margin: 0.5rem 2rem 0;
   }
@@ -165,39 +141,103 @@ body {
     font-size: 2rem;
     text-decoration: none;
   }
-.app {
-  /* full-Screen
-  height: 100vh;
-  display: flex;
-  flex-direction: column; */
+  
+  .player-container{
+    position: relative;
+  
+    }
+
+  .player-container svg{
+    position: absolute;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  
+  .time-select, .sound-picker, .player-container{
+    height: 80%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+  }
+
+  .time-select button,
+  .sound-picker button{
+    color: white;
+    width: 30%;
+    height: 10%;
+    background:none ;
+    border: 2px solid white;
+    cursor:pointer;
+    font-size: 20px;
+    transition: all 0.5s ease;
+
+  }
+
+  .time-select button:hover{
+    color: black;
+    background: white;
+  }
+
+  .sound-picker button{
+    border: none;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    padding: 2.5rem;
+  }
+  .sound-picker button:nth-child(1){
+    background: #4972a1;
+
+  }
+  .sound-picker button:nth-child(2){
+    background: #a14f49;
+    
+  }
+
+  .sound-picker button img{
+    height: 100%;
+  }
+
+
+ 
+
+.time-display{
+  position: absolute;
+  bottom:10%;
+  color: #fff;
+  font-size: 4.5rem;
 }
-.time-select{
-  height: 33vh;
-  flex: 1;
-  background-color: lightblue;
-}
-/* .time-select,
-.sound-picker,
-.player-container {
-  height: 100%;
-  flex: 1;
-} */
-.time-select {
-  background: lightblue;
-}
-.sound-picker {
-  background: lightgreen;
-}
-.player-container {
-  background: lightsalmon;
+video{
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  z-index: -9;
+
 }
 
 @media screen and (min-width: 768px) {
+  video{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+  
+  }
 }
 
 @media screen and (min-width: 1024px) {
-  .app {
-    flex-direction: row;
+  
+    /* "La propiedad flex es una abreviatura de las propiedades
+     flex-grow, flex-shrink y flex-base  y el valor flex:1 indica un valor proporcional*/
     
   }
-}
+
+  
+
