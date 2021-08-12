@@ -189,7 +189,7 @@ body {
     height: 120px;
     width: 120px;
     border-radius: 50%;
-    padding: 2.5rem;
+    padding: 2rem;
   }
   .sound-picker button:nth-child(1){
     background: #4972a1;
