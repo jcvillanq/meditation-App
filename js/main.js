@@ -28,6 +28,7 @@ const app = () => {
     // General selectors
     const song = document.querySelector('.song'),
         play = document.querySelector('.play'),
+        replay = document.querySelector('.replay'),
         outline = document.querySelector('.moving-outline circle'),
         video = document.querySelector('.vid-container video');
 
@@ -36,6 +37,8 @@ const app = () => {
 
     //Time Display
     const timeDisplay = document.querySelector('.time-display');
+
+
     const timeSelect = document.querySelectorAll('.time-select button');
 
     //Get the length of the outline
@@ -48,23 +51,21 @@ const app = () => {
     outline.style.strokeDashArray = outlineLength;
     outline.style.strokeDashoffset = outlineLength;
 
-
-    //play sound
-
-    play.addEventListener("click", () => {
-
-        checkPlaying(song);
-    })
     // Select sound
     timeSelect.forEach(option => {
-        option.addEventListener("click", function (){
+        option.addEventListener("click", function () {
             fakeduration = this.getAttribute('data-time');
             timeDisplay.textContent = `${Math.floor(fakeduration / 60)}:${Math.floor(fakeduration % 60)}`;
         })
-    })
+    });
 
-    //create a function specific to stop and play the sounds
-
+    sounds.forEach(sound => {
+        sound.addEventListener("click", function () {
+            song.src = this.getAttribute("data-sound");
+            video.src = this.getAttribute("data-video");
+            checkPlaying(song);
+        });
+    });
     const checkPlaying = song => {
 
         if (song.paused) {
@@ -80,6 +81,33 @@ const app = () => {
 
     };
 
+
+
+    const restartSong = song => {
+        let currentTime = song.currentTime;
+        song.currentTime = 0;
+        console.log("ciao")
+
+    }
+
+
+    //play sound
+
+    play.addEventListener("click", () => {
+
+        checkPlaying(song);
+    });
+
+    replay.addEventListener("click", function () {
+        restartSong(song);
+
+    });
+
+
+    //create a function specific to stop and play the sounds
+
+
+
     // Wer can animated the circle
 
     song.onTimeUpdate = () => {
@@ -88,16 +116,26 @@ const app = () => {
         let seconds = Math.floor(elapsed % 60);
         let minutes = Math.floor(elapsed / 60);
 
+
+
+        //animate the circle
+
+        let progress = outlineLength - (currentTime / fakeduration) * outlineLength;
+        outline.style.strokeDashoffset = progress;
+
+        // animate the text;
+
+        timeDisplay.textContent = `${minutes}:${seconds}`;
+
+        if (currentTime >= fakeDuration) {
+            song.pause();
+            song.currentTime = 0;
+            play.src = "./img/play.svg";
+            video.pause();
+
+        }
     }
 
-    //animate the circle
-
-    let progress = outlineLength - (currentTime / fakeduration) * outlineLength;
-    outline.style.strokeDashoffset = progress;
-
-    // animate the text;
-
-    timeDisplay.textContent = `${minutes}:${seconds}`;
 }
 
 app();
